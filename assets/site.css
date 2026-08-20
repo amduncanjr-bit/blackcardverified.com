@@ -217,3 +217,37 @@ footer a:hover{color:#fff}
 .catcard b::after{content:'\2192';font-family:var(--s);font-weight:700;opacity:.55}
 .rail-hint{font-family:var(--s);font-weight:600;font-size:12px;letter-spacing:.14em;
   text-transform:uppercase;opacity:.55;margin-top:2px}
+
+/* ── finale: the Black Card itself — the site goes luxe when it appears ── */
+.s-black.final{background:#050505;transition:background .7s ease}
+.bcard{width:min(560px,88vw);aspect-ratio:1.586;margin:clamp(30px,5vh,54px) auto 0;
+  border-radius:28px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#111112 0%,#1b1b1e 45%,#0b0b0c 100%);
+  border:1px solid rgba(231,200,127,.38);
+  box-shadow:0 30px 80px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.07);
+  transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));
+  transition:transform .25s ease-out}
+.bcard::after{content:'';position:absolute;inset:-2%;pointer-events:none;
+  background:linear-gradient(105deg,transparent 32%,rgba(231,200,127,.13) 46%,
+    rgba(255,255,255,.09) 50%,rgba(231,200,127,.13) 54%,transparent 68%);
+  transform:translateX(-130%);animation:sheen 6s ease-in-out infinite}
+@keyframes sheen{0%,52%{transform:translateX(-130%)}78%,100%{transform:translateX(130%)}}
+.bcard .crown{position:absolute;top:clamp(18px,4%,28px);left:clamp(20px,5%,32px);
+  width:clamp(40px,10%,56px);border-radius:22%;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.bcard .ctitle{position:absolute;top:clamp(24px,6%,34px);right:clamp(20px,5%,32px);
+  font-family:var(--s);font-weight:700;letter-spacing:.42em;font-size:clamp(10px,1.6vw,13px);
+  color:#E7C87F;text-transform:uppercase}
+.bcard .cnum{position:absolute;left:clamp(20px,5%,32px);bottom:26%;
+  font-family:var(--s);font-weight:600;letter-spacing:.3em;
+  font-size:clamp(10px,1.9vw,15px);color:rgba(231,200,127,.92);text-transform:uppercase}
+.bcard .cname{position:absolute;left:clamp(20px,5%,32px);bottom:clamp(18px,7%,30px);
+  font-family:var(--s);letter-spacing:.22em;font-size:clamp(9px,1.4vw,12px);
+  color:rgba(246,239,227,.55);text-transform:uppercase}
+.bcard .clvl{position:absolute;right:clamp(20px,5%,32px);bottom:clamp(18px,7%,30px);
+  font-family:var(--s);letter-spacing:.22em;font-size:clamp(9px,1.4vw,12px);
+  color:rgba(231,200,127,.8);text-transform:uppercase}
+/* chrome flip: nav + accents go champagne while the finale is in view */
+.nav{transition:background .6s ease,border-color .6s ease,box-shadow .6s ease}
+html.luxe .nav{background:rgba(5,5,5,.78);border-color:rgba(231,200,127,.45)}
+html.luxe .nav .cta{background:#E7C87F;color:#050505}
+html.luxe ::selection{background:#E7C87F;color:#050505}

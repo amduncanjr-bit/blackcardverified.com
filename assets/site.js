@@ -64,6 +64,28 @@
     }, true);
   });
 
+  /* finale: flip the whole site luxe while the Black Card is on screen */
+  var finale = document.getElementById('finale');
+  if (finale && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        document.documentElement.classList.toggle('luxe', e.intersectionRatio > 0.35);
+      });
+    }, { threshold: [0, .35, .6] }).observe(finale);
+  }
+  /* the card tilts toward the cursor, like it's being handed to you */
+  var bc = document.getElementById('bcard');
+  if (bc && matchMedia('(pointer: fine)').matches && !RM) {
+    bc.addEventListener('mousemove', function (e) {
+      var r = bc.getBoundingClientRect();
+      bc.style.setProperty('--ry', ((e.clientX - r.left) / r.width - .5) * 10 + 'deg');
+      bc.style.setProperty('--rx', (.5 - (e.clientY - r.top) / r.height) * 8 + 'deg');
+    });
+    bc.addEventListener('mouseleave', function () {
+      bc.style.setProperty('--rx', '0deg'); bc.style.setProperty('--ry', '0deg');
+    });
+  }
+
   /* nav: hide on scroll down, show on scroll up */
   var nav = document.querySelector('.nav'), lastY = 0;
   addEventListener('scroll', function () {
