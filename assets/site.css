@@ -195,3 +195,24 @@ footer a:hover{color:#fff}
 .bloglist .bdate{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#8E1F3F;font-weight:700}
 .bloglist h2{font-family:var(--d);font-weight:800;font-size:clamp(20px,2.3vw,27px);margin:6px 0 6px;color:var(--ink)}
 .bloglist p{color:#3A3730;font-size:15px;margin:0}
+
+/* ── category art rail (game art, straight from the app) ── */
+.catrail{display:flex;gap:clamp(14px,1.6vw,22px);margin-top:clamp(28px,4vh,48px);
+  overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  padding:10px var(--gut) 22px;margin-left:calc(-1*var(--gut));margin-right:calc(-1*var(--gut));
+  scrollbar-width:none;touch-action:pan-x pan-y}
+.catrail::-webkit-scrollbar{display:none}
+.catcard{flex:0 0 clamp(250px,27vw,340px);margin:0;scroll-snap-align:center;border-radius:26px;
+  overflow:hidden;border:3px solid var(--ink);background:var(--ink);
+  box-shadow:0 9px 0 rgba(10,10,11,.30);transform:rotate(var(--tilt,0deg));
+  transition:transform .45s var(--pop),box-shadow .45s var(--pop)}
+.catcard:nth-child(odd){--tilt:-1.1deg}
+.catcard:nth-child(even){--tilt:1deg}
+.catcard:hover{transform:rotate(0deg) translateY(-8px);box-shadow:0 16px 0 rgba(10,10,11,.30)}
+.catcard img{width:100%;aspect-ratio:3/2;object-fit:cover;display:block}
+.catcard b{display:flex;align-items:center;justify-content:space-between;font-family:var(--d);
+  font-weight:800;color:var(--gold);background:var(--ink);padding:11px 18px 13px;
+  font-size:clamp(16px,1.6vw,21px);letter-spacing:.01em}
+.catcard b::after{content:'\2192';font-family:var(--s);font-weight:700;opacity:.55}
+.rail-hint{font-family:var(--s);font-weight:600;font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;opacity:.55;margin-top:2px}
