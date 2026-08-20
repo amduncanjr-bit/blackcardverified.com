@@ -128,7 +128,7 @@ a{color:inherit;text-decoration:none}
 .gcol:hover,.gcol.on{flex:2.7}
 .gcol:hover .glabel,.gcol.on .glabel{opacity:1;transform:none}
 @media(max-width:760px){
-  .gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;height:64vh;
+  .gallery{display:flex;overflow-x:auto;scroll-snap-type:x proximity;height:64vh;
     scrollbar-width:none;gap:12px}
   .gallery::-webkit-scrollbar{display:none}
   .gcol{flex:0 0 72vw;scroll-snap-align:center}
@@ -198,9 +198,10 @@ footer a:hover{color:#fff}
 
 /* ── category art rail (game art, straight from the app) ── */
 .catrail{display:flex;gap:clamp(14px,1.6vw,22px);margin-top:clamp(28px,4vh,48px);
-  overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
   padding:10px var(--gut) 22px;margin-left:calc(-1*var(--gut));margin-right:calc(-1*var(--gut));
-  scrollbar-width:none;touch-action:pan-x pan-y}
+  scrollbar-width:none;touch-action:pan-x pan-y;cursor:grab;user-select:none}
+.catrail.dragging{cursor:grabbing;scroll-snap-type:none}
 .catrail::-webkit-scrollbar{display:none}
 .catcard{flex:0 0 clamp(250px,27vw,340px);margin:0;scroll-snap-align:center;border-radius:26px;
   overflow:hidden;border:3px solid var(--ink);background:var(--ink);

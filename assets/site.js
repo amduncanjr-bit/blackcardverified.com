@@ -8,8 +8,21 @@
     var max = function () {
       return document.documentElement.scrollHeight - innerHeight;
     };
+    /* horizontally scrollable ancestor (category rail etc.) — let native
+       handle horizontal-dominant gestures there instead of hijacking */
+    var hscroller = function (el) {
+      while (el && el !== document.body) {
+        if (el.scrollWidth > el.clientWidth + 4) {
+          var o = getComputedStyle(el).overflowX;
+          if (o === 'auto' || o === 'scroll') return el;
+        }
+        el = el.parentElement;
+      }
+      return null;
+    };
     addEventListener('wheel', function (e) {
       if (e.ctrlKey) return;               // pinch-zoom stays native
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && hscroller(e.target)) return;
       e.preventDefault();
       target = Math.max(0, Math.min(max(), target + e.deltaY));
       if (!running) { running = true; requestAnimationFrame(step); }
@@ -27,6 +40,29 @@
       if (!running) { target = window.scrollY; current = target; }
     }, { passive: true });
   }
+
+  /* category rail: mouse drag-to-scroll (touch + trackpad are native) */
+  document.querySelectorAll('.catrail').forEach(function (rail) {
+    var down = false, startX = 0, startLeft = 0, moved = false;
+    rail.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      down = true; moved = false; startX = e.clientX; startLeft = rail.scrollLeft;
+      rail.classList.add('dragging');
+    });
+    addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      rail.scrollLeft = startLeft - dx;
+    });
+    addEventListener('pointerup', function () {
+      down = false; rail.classList.remove('dragging');
+    });
+    /* swallow the click that ends a drag so cards don't activate */
+    rail.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+    }, true);
+  });
 
   /* nav: hide on scroll down, show on scroll up */
   var nav = document.querySelector('.nav'), lastY = 0;
