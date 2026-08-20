@@ -1,3 +1,10 @@
 {
- "articles": []
+ "articles": [
+  {
+   "slug": "spades-unwritten-rules",
+   "title": "Nobody is going to teach you spades — you just have to know",
+   "dek": "The rules are not written down because some of us learned the hard way and we think you should too.",
+   "date": "August 20, 2026"
+  }
+ ]
 }
