@@ -183,3 +183,15 @@ footer a:hover{color:#fff}
   .rv,.pop,.wordmark .l,.spark,.sticker{opacity:1;transform:none}
   .parade .bar{height:100%}.parade .bar.h70{height:74%}.parade .bar.h85{height:88%}
 }
+
+/* ── culture notes (blog) ── */
+.nav .lnk{font-weight:600;font-size:14.5px;opacity:.85;margin-left:auto;margin-right:18px}
+.nav .lnk:hover{opacity:1;color:var(--gold)}
+.band .lede{font-size:clamp(15.5px,1.3vw,19px);max-width:54ch;margin-top:16px;opacity:.85}
+.bloglist{list-style:none;padding:0}
+.bloglist li{border-bottom:2px solid rgba(10,10,11,.12)}
+.bloglist a{display:block;padding:26px 0;transition:transform .3s var(--quart)}
+.bloglist a:hover{transform:translateX(8px)}
+.bloglist .bdate{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:#8E1F3F;font-weight:700}
+.bloglist h2{font-family:var(--d);font-weight:800;font-size:clamp(20px,2.3vw,27px);margin:6px 0 6px;color:var(--ink)}
+.bloglist p{color:#3A3730;font-size:15px;margin:0}
