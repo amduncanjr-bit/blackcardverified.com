@@ -1,6 +1,12 @@
 {
  "articles": [
   {
+   "slug": "group-chat-roles-and-ranks",
+   "title": "The group chat has a government and you already know your position",
+   "dek": "Nobody voted but everybody knows who's in charge.",
+   "date": "September 5, 2026"
+  },
+  {
    "slug": "trivia-night-friendship-casualties",
    "title": "Game night hosting: how to run a trivia night that ends friendships correctly",
    "dek": "There is a right way to do this and you are probably already doing it wrong.",
