@@ -1,6 +1,12 @@
 {
  "articles": [
   {
+   "slug": "spades-rules-nobody-says",
+   "title": "The unwritten rules of spades are not written down for a reason",
+   "dek": "There are things you simply should not have to be told.",
+   "date": "September 12, 2026"
+  },
+  {
    "slug": "who-all-gon-be-there",
    "title": "\"Who all gon be there?\" is a complete risk assessment",
    "dek": "Four words that have saved more people from a bad evening than any GPS ever could.",
